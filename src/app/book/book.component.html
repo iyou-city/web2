@@ -1,8 +1,39 @@
-<p>
-  book works!
-</p>
-
+当前绘本
+<ul class="heroes">
+  <li *ngFor="let item of books">
+    <span class="badge">{{item.title}}</span>
+    <br />
+    [<span *ngFor="let page of item.pageList">
+      {{page.picture.url}}
+    </span>]
+  </li>
+</ul>
+添加绘本
 <div class="form-group">
-  <label for="file">Choose File</label>
-  <input multiple type="file" id="file" (change)="handleFileInput($event.target.files)">
+  <label>
+    绘本名:
+    <input type="text" [(ngModel)]="book.title" placeholder="name">
+  </label>
+  <label>
+    封面:
+    <input type="file" (change)="onCover($event)">
+  </label>
+  <br />
+  <button mat-button color="primary" (click)="addPage()">添加图片页</button>
+  <div>
+    <div *ngFor="let page of book.pageList">
+      <label>
+        名称:
+        <input type="text" [(ngModel)]="page.name" placeholder="name">
+        图片:
+        <input type="file" id="{{page.name}}-pic" (change)="onFileChange($event)">
+        声音:
+        <input type="file" id="{{page.name}}-sound" (change)="onFileChange($event)">
+      </label>
+    </div>
+    <!-- <label for="file">Choose File</label>
+    <input multiple type="file" id="file" (change)="handleFileInput($event.target.files)"> -->
+  </div>
 </div>
+
+<button mat-button color="primary" (click)="submit()">提交</button>
