@@ -15,6 +15,10 @@
     <input type="text" [(ngModel)]="book.title" placeholder="name">
   </label>
   <label>
+    级别:
+    <input type="text" [(ngModel)]="book.level" placeholder="5">
+  </label>
+  <label>
     封面:
     <input type="file" (change)="onCover($event)">
   </label>

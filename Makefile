@@ -17,7 +17,8 @@ else
 endif
 
 build:
-	ng build
+	-rm -rf dist
+	ng build --prod
 
 image:build
 	docker build -t $(IMG_HUB)/$(SERVICE):$(TAG) .

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book, Page, Media } from '../../sdk/book_pb';
 import { HttpClient } from '@angular/common/http';
 import { apiService } from '../service/api.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-book',
@@ -54,10 +55,8 @@ export class BookComponent implements OnInit {
 
   submit() {
     // upload firstly
-    const endpoint = 'http://192.168.123.121:9090';
-    this.httpClient.post(endpoint, this.formData, { params: { title: this.book.title } }).subscribe(
+    this.httpClient.post(environment.uploadUrl, this.formData, { params: { title: this.book.title } }).subscribe(
       data => {
-        // do something, if upload success
         console.log(data);
       }, error => {
         console.log(error);
@@ -66,6 +65,7 @@ export class BookComponent implements OnInit {
 
     let tsBook = new Book();
     tsBook.setTitle(this.book.title);
+    tsBook.setLevel(this.book.level);
     let cover = new Media();
     cover.setUrl(this.book.cover.url);
     tsBook.setCover(cover);
