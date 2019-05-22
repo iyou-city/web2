@@ -95,4 +95,17 @@ export class BookComponent implements OnInit {
     });
     this.ngOnInit();
   }
+
+  deleteBook(book: Book.AsObject) {
+    let tsBook = new Book();
+    tsBook.setId(book.id);
+    tsBook.setTitle(book.title);
+    apiService.bookClient.delete(tsBook, apiService.metaData, (err: any, response: Book) => {
+      if (err) {
+        alert(JSON.stringify(err));
+      } else {
+        console.log(response);
+      }
+    });
+  }
 }

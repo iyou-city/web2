@@ -7,6 +7,7 @@
 <ul class="heroes">
   <li *ngFor="let item of books">
     <span class="badge">{{item.title}}</span>
+    <button mat-button color="primary" (click)="deleteBook(item)">删除</button>
     <br />
     [<span *ngFor="let page of item.pageList">
       {{page.picture.url}}
