@@ -4,7 +4,8 @@ import { BookComponent } from './book/book.component';
 import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
-  { path: '', component: BookComponent },
+  { path: '', component: DownloadComponent },
+  { path: 'admin', component: BookComponent },
   { path: 'download', component: DownloadComponent },
 ];
 
