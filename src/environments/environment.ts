@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.123.121:8080',
-  uploadUrl: 'http://192.168.123.121:9090',
+  apiUrl: 'http://192.168.123.121:8080'
 };
 
 /*

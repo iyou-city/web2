@@ -55,7 +55,7 @@ export class BookComponent implements OnInit {
 
   submit() {
     // upload firstly
-    this.httpClient.post(environment.uploadUrl, this.formData, { params: { title: this.book.title } }).subscribe(
+    this.httpClient.post(environment.apiUrl + '/upload', this.formData, { params: { title: this.book.title } }).subscribe(
       data => {
         console.log(data);
       }, error => {

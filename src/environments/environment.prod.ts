@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://iyou.city:8080',
-  uploadUrl: 'http://iyou.city:9090'
+  apiUrl: 'http://114.115.142.130:8080'
 };
