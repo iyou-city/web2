@@ -28,7 +28,7 @@ push:image
 
 run:image
 	-docker service rm $(SERVICE) > /dev/null 2>&1  || true	
-	@docker service create --name $(SERVICE) --network devel -p 80:80 --mount type=bind,source=/home/daniel/uploads,destination=/usr/share/nginx/html/uploads $(IMG_HUB)/$(SERVICE):$(TAG)
+	@docker service create --name $(SERVICE) --network devel $(IMG_HUB)/$(SERVICE):$(TAG)
 
 test:
 	go test -cover ./...
