@@ -5,46 +5,27 @@ import * as google_protobuf_wrappers_pb from 'google-protobuf/google/protobuf/wr
 import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Article extends jspb.Message {
-  getId(): string;
-  setId(value: string): void;
-
-  getTitle(): string;
-  setTitle(value: string): void;
-
-  getContent(): string;
-  setContent(value: string): void;
-
-  getImagesList(): Array<string>;
-  setImagesList(value: Array<string>): void;
-  clearImagesList(): void;
+  id: string;
+  title: string;
+  content: string;
+  imagesList: Array<string>;
+  clearimagesList(): void;
   addImages(value: string, index?: number): void;
-
-  getVideosList(): Array<string>;
-  setVideosList(value: Array<string>): void;
-  clearVideosList(): void;
+  videosList: Array<string>;
+  clearvideosList(): void;
   addVideos(value: string, index?: number): void;
-
-  getOwner(): string;
-  setOwner(value: string): void;
-
-  getLocation(): Location | undefined;
-  setLocation(value?: Location): void;
-  hasLocation(): boolean;
-  clearLocation(): void;
-
-  getAccessesList(): Array<number>;
-  setAccessesList(value: Array<number>): void;
-  clearAccessesList(): void;
+  owner: string;
+  location: Location | undefined;
+  haslocation(): boolean;
+  clearlocation(): void;
+  accessesList: Array<number>;
+  clearaccessesList(): void;
   addAccesses(value: number, index?: number): void;
-
-  getLabelsMap(): jspb.Map<string, string>;
-  clearLabelsMap(): void;
-
-  getCreated(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setCreated(value?: google_protobuf_timestamp_pb.Timestamp): void;
-  hasCreated(): boolean;
-  clearCreated(): void;
-
+  labelsMap: jspb.Map<string, string>;
+  clearlabelsMap(): void;
+  created: google_protobuf_timestamp_pb.Timestamp | undefined;
+  hascreated(): boolean;
+  clearcreated(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Article.AsObject;
   static toObject(includeInstance: boolean, msg: Article): Article.AsObject;
@@ -69,15 +50,9 @@ export namespace Article {
 }
 
 export class Location extends jspb.Message {
-  getLatitude(): number;
-  setLatitude(value: number): void;
-
-  getLongitude(): number;
-  setLongitude(value: number): void;
-
-  getName(): string;
-  setName(value: string): void;
-
+  latitude: number;
+  longitude: number;
+  name: string;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Location.AsObject;
   static toObject(includeInstance: boolean, msg: Location): Location.AsObject;

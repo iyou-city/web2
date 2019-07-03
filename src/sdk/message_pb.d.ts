@@ -5,36 +5,21 @@ import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty
 import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Message extends jspb.Message {
-  getId(): string;
-  setId(value: string): void;
-
-  getContent(): string;
-  setContent(value: string): void;
-
-  getImagesList(): Array<string>;
-  setImagesList(value: Array<string>): void;
-  clearImagesList(): void;
+  id: string;
+  content: string;
+  imagesList: Array<string>;
+  clearimagesList(): void;
   addImages(value: string, index?: number): void;
-
-  getVideosList(): Array<string>;
-  setVideosList(value: Array<string>): void;
-  clearVideosList(): void;
+  videosList: Array<string>;
+  clearvideosList(): void;
   addVideos(value: string, index?: number): void;
-
-  getTo(): string;
-  setTo(value: string): void;
-
-  getFrom(): string;
-  setFrom(value: string): void;
-
-  getLabelsMap(): jspb.Map<string, string>;
-  clearLabelsMap(): void;
-
-  getCreated(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setCreated(value?: google_protobuf_timestamp_pb.Timestamp): void;
-  hasCreated(): boolean;
-  clearCreated(): void;
-
+  to: string;
+  from: string;
+  labelsMap: jspb.Map<string, string>;
+  clearlabelsMap(): void;
+  created: google_protobuf_timestamp_pb.Timestamp | undefined;
+  hascreated(): boolean;
+  clearcreated(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Message.AsObject;
   static toObject(includeInstance: boolean, msg: Message): Message.AsObject;
@@ -57,14 +42,10 @@ export namespace Message {
 }
 
 export class Topic extends jspb.Message {
-  getGroupid(): string;
-  setGroupid(value: string): void;
-
-  getMessage(): Message | undefined;
-  setMessage(value?: Message): void;
-  hasMessage(): boolean;
-  clearMessage(): void;
-
+  groupId: string;
+  message: Message | undefined;
+  hasmessage(): boolean;
+  clearmessage(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Topic.AsObject;
   static toObject(includeInstance: boolean, msg: Topic): Topic.AsObject;

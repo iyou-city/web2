@@ -14,11 +14,11 @@ export class ApiService {
 
   constructor() { }
 
-  articleClient = new ArticlesClient(environment.apiUrl);
-  userClient = new UsersClient(environment.apiUrl);
-  groupClient = new GroupsClient(environment.apiUrl);
-  messageClient = new MessagesClient(environment.apiUrl);
-  bookClient = new BooksClient(environment.apiUrl);
+  articleClient = new ArticlesClient(environment.apiUrl,null,null);
+  userClient = new UsersClient(environment.apiUrl,null,null);
+  groupClient = new GroupsClient(environment.apiUrl,null,null);
+  messageClient = new MessagesClient(environment.apiUrl,null,null);
+  bookClient = new BooksClient(environment.apiUrl,null,null);
 
   metaData = { 'authorization-token': 'admin' };
 }

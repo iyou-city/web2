@@ -10,8 +10,8 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent implements OnInit {
-  book = (new Book).toObject();
-  books: Book.AsObject[];
+  book = new Book();
+  books: Book[];
   formData = new FormData();
 
   constructor(private httpClient: HttpClient) { }
@@ -20,7 +20,7 @@ export class BookComponent implements OnInit {
     this.books = []
     let stream = apiService.bookClient.list((new Book), apiService.metaData);
     stream.on('data', response => {
-      this.books.push(response.toObject());
+      this.books.push(response);
     });
     stream.on('error', err => {
       alert(JSON.stringify(err));
@@ -29,13 +29,15 @@ export class BookComponent implements OnInit {
   }
 
   addPage() {
-    let page = (new Page).toObject();
+    let page = new Page();
     this.book.pageList.push(page);
   }
 
   onCover(event) {
     const file = event.target.files[0];
-    this.book.cover = { url: this.book.title + '/' + file.name }
+    let media = new Media();
+    media.url = this.book.title + '/' + file.name
+    this.book.cover = media;//{ url: this.book.title + '/' + file.name }
     this.formData.append('uploadfile', file, file.name);
   }
 
@@ -43,10 +45,14 @@ export class BookComponent implements OnInit {
     const file = event.target.files[0];
     for (let page of this.book.pageList) {
       if (page.name + '-pic' == event.target.id) {
-        page.picture = { url: this.book.title + '/' + file.name };
+        let media = new Media();
+        media.url = this.book.title + '/' + file.name
+        page.picture = media;//{ url: this.book.title + '/' + file.name };
       }
       if (page.name + '-sound' == event.target.id) {
-        page.sound = { url: this.book.title + '/' + file.name };
+        let media = new Media();
+        media.url = this.book.title + '/' + file.name
+        page.sound = media;//{ url: this.book.title + '/' + file.name };
       }
       console.log(page.name);
     }
@@ -63,30 +69,30 @@ export class BookComponent implements OnInit {
       }
     );
 
-    let tsBook = new Book();
-    tsBook.setTitle(this.book.title);
-    tsBook.setLevel(this.book.level);
-    let cover = new Media();
-    cover.setUrl(this.book.cover.url);
-    tsBook.setCover(cover);
-    for (let k of this.book.pageList) {
-      let page = new Page();
-      page.setName(k.name);
+    // let tsBook = new Book();
+    // tsBook.setTitle(this.book.title);
+    // tsBook.setLevel(this.book.level);
+    // let cover = new Media();
+    // cover.setUrl(this.book.cover.url);
+    // tsBook.setCover(cover);
+    // for (let k of this.book.pageList) {
+    //   let page = new Page();
+    //   page.setName(k.name);
 
-      let picture = new Media();
-      picture.setUrl(k.picture.url);
-      page.setPicture(picture);
+    //   let picture = new Media();
+    //   picture.setUrl(k.picture.url);
+    //   page.setPicture(picture);
 
-      if (k.sound != null) {
-        let sound = new Media();
-        sound.setUrl(k.sound.url);
-        page.setSound(sound);
-      }
+    //   if (k.sound != null) {
+    //     let sound = new Media();
+    //     sound.setUrl(k.sound.url);
+    //     page.setSound(sound);
+    //   }
 
-      tsBook.addPage(page);
-    }
+    //   tsBook.addPage(page);
+    // }
     //tsBook.setPageList(this.book.pageList);
-    apiService.bookClient.add(tsBook, apiService.metaData, (err: any, response: Book) => {
+    apiService.bookClient.add(this.book, apiService.metaData, (err: any, response: Book) => {
       if (err) {
         alert(JSON.stringify(err));
       } else {
@@ -97,10 +103,10 @@ export class BookComponent implements OnInit {
   }
 
   deleteBook(book: Book.AsObject) {
-    let tsBook = new Book();
-    tsBook.setId(book.id);
-    tsBook.setTitle(book.title);
-    apiService.bookClient.delete(tsBook, apiService.metaData, (err: any, response: Book) => {
+    // let tsBook = new Book();
+    // tsBook.setId(book.id);
+    // tsBook.setTitle(book.title);
+    apiService.bookClient.delete(this.book, apiService.metaData, (err: any, response: Book) => {
       if (err) {
         alert(JSON.stringify(err));
       } else {

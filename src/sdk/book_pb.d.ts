@@ -5,42 +5,23 @@ import * as google_protobuf_wrappers_pb from 'google-protobuf/google/protobuf/wr
 import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Book extends jspb.Message {
-  getId(): string;
-  setId(value: string): void;
-
-  getTitle(): string;
-  setTitle(value: string): void;
-
-  getCover(): Media | undefined;
-  setCover(value?: Media): void;
-  hasCover(): boolean;
-  clearCover(): void;
-
-  getPageList(): Array<Page>;
-  setPageList(value: Array<Page>): void;
-  clearPageList(): void;
+  id: string;
+  title: string;
+  cover: Media | undefined;
+  hascover(): boolean;
+  clearcover(): void;
+  pageList: Array<Page>;
+  clearpageList(): void;
   addPage(value?: Page, index?: number): Page;
-
-  getReader(): string;
-  setReader(value: string): void;
-
-  getAmount(): number;
-  setAmount(value: number): void;
-
-  getLevel(): number;
-  setLevel(value: number): void;
-
-  getCategory(): string;
-  setCategory(value: string): void;
-
-  getLabelsMap(): jspb.Map<string, string>;
-  clearLabelsMap(): void;
-
-  getCreated(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setCreated(value?: google_protobuf_timestamp_pb.Timestamp): void;
-  hasCreated(): boolean;
-  clearCreated(): void;
-
+  reader: string;
+  amount: number;
+  level: number;
+  category: string;
+  labelsMap: jspb.Map<string, string>;
+  clearlabelsMap(): void;
+  created: google_protobuf_timestamp_pb.Timestamp | undefined;
+  hascreated(): boolean;
+  clearcreated(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Book.AsObject;
   static toObject(includeInstance: boolean, msg: Book): Book.AsObject;
@@ -65,19 +46,13 @@ export namespace Book {
 }
 
 export class Page extends jspb.Message {
-  getName(): string;
-  setName(value: string): void;
-
-  getPicture(): Media | undefined;
-  setPicture(value?: Media): void;
-  hasPicture(): boolean;
-  clearPicture(): void;
-
-  getSound(): Media | undefined;
-  setSound(value?: Media): void;
-  hasSound(): boolean;
-  clearSound(): void;
-
+  name: string;
+  picture: Media | undefined;
+  haspicture(): boolean;
+  clearpicture(): void;
+  sound: Media | undefined;
+  hassound(): boolean;
+  clearsound(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Page.AsObject;
   static toObject(includeInstance: boolean, msg: Page): Page.AsObject;
@@ -95,9 +70,7 @@ export namespace Page {
 }
 
 export class Media extends jspb.Message {
-  getUrl(): string;
-  setUrl(value: string): void;
-
+  url: string;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Media.AsObject;
   static toObject(includeInstance: boolean, msg: Media): Media.AsObject;

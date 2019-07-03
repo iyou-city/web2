@@ -4,31 +4,18 @@ import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty
 import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 
 export class Group extends jspb.Message {
-  getId(): string;
-  setId(value: string): void;
-
-  getName(): string;
-  setName(value: string): void;
-
-  getDescription(): string;
-  setDescription(value: string): void;
-
-  getIcon(): string;
-  setIcon(value: string): void;
-
-  getMembersList(): Array<string>;
-  setMembersList(value: Array<string>): void;
-  clearMembersList(): void;
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  membersList: Array<string>;
+  clearmembersList(): void;
   addMembers(value: string, index?: number): void;
-
-  getLabelsMap(): jspb.Map<string, string>;
-  clearLabelsMap(): void;
-
-  getCreated(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setCreated(value?: google_protobuf_timestamp_pb.Timestamp): void;
-  hasCreated(): boolean;
-  clearCreated(): void;
-
+  labelsMap: jspb.Map<string, string>;
+  clearlabelsMap(): void;
+  created: google_protobuf_timestamp_pb.Timestamp | undefined;
+  hascreated(): boolean;
+  clearcreated(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Group.AsObject;
   static toObject(includeInstance: boolean, msg: Group): Group.AsObject;
