@@ -24,7 +24,6 @@ export class BookComponent implements OnInit {
     });
     stream.on('error', err => {
       alert(JSON.stringify(err));
-      //this.loadGroups();
     });
   }
 
@@ -69,29 +68,6 @@ export class BookComponent implements OnInit {
       }
     );
 
-    // let tsBook = new Book();
-    // tsBook.setTitle(this.book.title);
-    // tsBook.setLevel(this.book.level);
-    // let cover = new Media();
-    // cover.setUrl(this.book.cover.url);
-    // tsBook.setCover(cover);
-    // for (let k of this.book.pageList) {
-    //   let page = new Page();
-    //   page.setName(k.name);
-
-    //   let picture = new Media();
-    //   picture.setUrl(k.picture.url);
-    //   page.setPicture(picture);
-
-    //   if (k.sound != null) {
-    //     let sound = new Media();
-    //     sound.setUrl(k.sound.url);
-    //     page.setSound(sound);
-    //   }
-
-    //   tsBook.addPage(page);
-    // }
-    //tsBook.setPageList(this.book.pageList);
     apiService.bookClient.add(this.book, apiService.metaData, (err: any, response: Book) => {
       if (err) {
         alert(JSON.stringify(err));
@@ -102,11 +78,8 @@ export class BookComponent implements OnInit {
     this.ngOnInit();
   }
 
-  deleteBook(book: Book.AsObject) {
-    // let tsBook = new Book();
-    // tsBook.setId(book.id);
-    // tsBook.setTitle(book.title);
-    apiService.bookClient.delete(this.book, apiService.metaData, (err: any, response: Book) => {
+  deleteBook(book: Book) {
+    apiService.bookClient.delete(book, apiService.metaData, (err: any, response: Book) => {
       if (err) {
         alert(JSON.stringify(err));
       } else {
