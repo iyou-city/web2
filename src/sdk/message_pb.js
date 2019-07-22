@@ -555,7 +555,7 @@ proto.dawn.Topic.prototype.toObject = function(opt_includeInstance) {
  */
 proto.dawn.Topic.toObject = function(includeInstance, msg) {
   var f, obj = {
-    groupid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    groupId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     message: (f = msg.getMessage()) && proto.dawn.Message.toObject(includeInstance, f)
   };
 
@@ -595,7 +595,7 @@ proto.dawn.Topic.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setGroupid(value);
+      msg.setGroupId(value);
       break;
     case 2:
       var value = new proto.dawn.Message;
@@ -631,7 +631,7 @@ proto.dawn.Topic.prototype.serializeBinary = function() {
  */
 proto.dawn.Topic.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getGroupid();
+  f = message.getGroupId();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -649,12 +649,12 @@ proto.dawn.Topic.serializeBinaryToWriter = function(message, writer) {
 };
 
 
-Object.defineProperty(proto.dawn.Topic.prototype, "groupid", {
+Object.defineProperty(proto.dawn.Topic.prototype, "groupId", {
   set: function(value) {
-    this.setGroupid(value);
+    this.setGroupId(value);
   },
   get: function() {
-    return this.getGroupid();
+    return this.getGroupId();
   },
 });
 
@@ -663,13 +663,13 @@ Object.defineProperty(proto.dawn.Topic.prototype, "groupid", {
  * optional string groupId = 1;
  * @return {string}
  */
-proto.dawn.Topic.prototype.getGroupid = function() {
+proto.dawn.Topic.prototype.getGroupId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.dawn.Topic.prototype.setGroupid = function(value) {
+proto.dawn.Topic.prototype.setGroupId = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
